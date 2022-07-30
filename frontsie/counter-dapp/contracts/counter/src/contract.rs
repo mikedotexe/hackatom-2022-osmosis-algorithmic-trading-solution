@@ -4,7 +4,9 @@ use cosmwasm_std::{to_binary, Binary, Deps, DepsMut, Env, MessageInfo, Response,
 use cw2::set_contract_version;
 
 use crate::error::ContractError;
-use crate::msg::{ExecuteMsg, GetCountResponse, InstantiateMsg, QueryMsg, GetVaultBalancesResponse};
+use crate::msg::{
+    ExecuteMsg, GetCountResponse, GetVaultBalancesResponse, InstantiateMsg, QueryMsg,
+};
 use crate::state::{State, STATE};
 
 // version info for migration info
@@ -86,7 +88,9 @@ fn query_balances(_env: Env, deps: Deps) -> StdResult<GetVaultBalancesResponse> 
     // https://github.com/PeggyJV/ocular/blob/26e6aecc832189782117a79b1e48aa22d6a3ccbc/ocular/tests/airdrop.rs
     // https://docs.rs/cosmwasm-std/0.14.0/cosmwasm_std/enum.BankMsg.html
     let all_balances = deps.querier.query_all_balances(_env.contract.address)?;
-    Ok(GetVaultBalancesResponse { balances: all_balances })
+    Ok(GetVaultBalancesResponse {
+        balances: all_balances,
+    })
 }
 
 #[cfg(test)]

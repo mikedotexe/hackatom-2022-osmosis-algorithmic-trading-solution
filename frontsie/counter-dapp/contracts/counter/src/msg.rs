@@ -1,6 +1,6 @@
+use cosmwasm_std::Coin;
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
-use cosmwasm_std::Coin;
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub struct InstantiateMsg {
@@ -27,7 +27,6 @@ pub enum QueryMsg {
 pub struct GetCountResponse {
     pub count: i32,
 }
-
 
 // We define a custom struct for each query response
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
