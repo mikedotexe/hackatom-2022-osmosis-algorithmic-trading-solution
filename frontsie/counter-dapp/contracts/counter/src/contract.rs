@@ -8,6 +8,7 @@ use crate::msg::{
     ExecuteMsg, GetCountResponse, GetVaultBalancesResponse, InstantiateMsg, QueryMsg,
 };
 use crate::state::{State, STATE};
+use osmo_bindings::Swap;
 
 // version info for migration info
 const CONTRACT_NAME: &str = "crates.io:counter";
@@ -43,6 +44,7 @@ pub fn execute(
     match msg {
         ExecuteMsg::Increment {} => try_increment(deps),
         ExecuteMsg::Reset { count } => try_reset(deps, info, count),
+        ExecuteMsg::Swap { .. } => try_swap(deps, info),
     }
 }
 
@@ -53,6 +55,12 @@ pub fn try_increment(deps: DepsMut) -> Result<Response, ContractError> {
     })?;
 
     Ok(Response::new().add_attribute("method", "try_increment"))
+}
+
+pub fn try_swap(_deps: DepsMut, _info: MessageInfo) -> Result<Response, ContractError> {
+    // put swap logic here
+
+    Ok(Response::new().add_attribute("method", "try_swap"))
 }
 
 pub fn try_reset(deps: DepsMut, info: MessageInfo, count: i32) -> Result<Response, ContractError> {
