@@ -78,6 +78,9 @@ All in all, we learned a ton about the ecosystem and feel like we've all got a h
 At the 11.75th hour, we have a live website!
 https://hackatom-seoul-2022.onrender.com
 
+With some luck, this domain will be live once it's propagated:
+https://algosm.zone
+
 …and this domain coming Soon™:
 
 <img src="./assets/algosm-zone.png" width="600" />
